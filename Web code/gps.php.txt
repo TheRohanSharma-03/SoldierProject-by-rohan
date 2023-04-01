@@ -1,0 +1,23 @@
+<?php
+$conn = mysqli_connect("localhost","id19693227_jerry","Dbrohansharma@97","id19693227_gps") or die("Connection failed");
+
+$data = $_GET['data'];
+
+$row = explode(',',$data);
+$lat = $row[0];
+$lon = $row[1];
+
+if($lat != "" && $lon != ""){
+    $sql = "UPDATE gpsdata SET lat='$lat',lon='$lon' WHERE id=1";
+    mysqli_query($conn,$sql);
+}
+?>
+
+<html>
+    <head>
+        <title>GPS Data</title>
+    </head>
+    <body>
+        <h1>Lat : <?php echo $lat; ?> & Lon : <?php echo $lon; ?></h1>
+    </body>
+</html>
